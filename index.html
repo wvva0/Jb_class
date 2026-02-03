@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตารางเรียนของแว่น 💖</title>
+    <!-- Google Fonts: Mali for a cute, handwriting style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="bg-container"></div>
+
+    <header id="main-header">
+        <div class="header-content">
+            <h1 id="header-title">ตารางเรียนของแว่น 💖</h1>
+            <p class="subtitle" id="typing-text"></p> <!-- Empty for typing effect -->
+            <div id="greeting-clock" class="greeting-clock"></div>
+        </div>
+        <div class="header-actions">
+            <button id="admin-btn" title="Admin Settings">
+                <i class="fas fa-cog"></i>
+            </button>
+            <button id="theme-toggle" aria-label="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <div id="countdown-banner" class="countdown-banner hidden">
+        <span class="countdown-icon">⏳</span>
+        <span id="countdown-text">กำลังโหลดข้อมูลสอบ...</span>
+    </div>
+
+    <main id="schedule-container" class="container">
+        <!-- Cards will be rendered here dynamically -->
+    </main>
+
+    <!-- Admin Modal -->
+    <!-- Admin Modal -->
+    <div id="admin-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>⚙️ ระบบแก้ไขข้อมูล (Admin)</h2>
+                <button onclick="closeAdmin()" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>แก้ไขข้อมูลตารางเรียนในรูปแบบ JSON (เหมาะสำหรับเทอมจต่อไปน้า):</p>
+                <textarea id="admin-json-input" spellcheck="false"></textarea>
+                <div class="modal-tips">
+                    <p>💡 <b>Tips:</b> หนูสามารถก้อปปี้ข้อมูลเดิมไปแก้รหัสวิชา หรือชื่ออาจารย์ได้เลยนะคะ</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="saveAdminData()" class="save-btn">บันทึกการเปลี่ยนแปลง ✨</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal (Custom Prompt) -->
+    <div id="login-modal" class="modal hidden">
+        <div class="modal-content login-style">
+            <div class="modal-header">
+                <h2>🔐 ยืนยันตัวตน</h2>
+            </div>
+            <div class="modal-body align-center">
+                <p>กรุณาใส่รหัสผ่านเพื่อเข้าสู่ระบบ Admin:</p>
+                <div class="password-input-wrapper">
+                    <input type="password" id="login-password-input" placeholder="••••••" maxlength="10">
+                    <p id="login-error-msg" class="error-text hidden">รหัสผ่านไม่ถูกต้องนะคะ! ลืมหรอคะ 🥺</p>
+                </div>
+            </div>
+            <div class="modal-footer centered">
+                <button id="login-cancel-btn" class="cancel-btn">ยกเลิก</button>
+                <button id="login-submit-btn" class="save-btn">เข้าสู่ระบบ ✨</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p> ❤️ by P.wvva. </p>
+        <p class="quote">"เหนื่อยก็พักบ้างนะคนดี"</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
