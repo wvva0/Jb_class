@@ -218,8 +218,8 @@ header {
     padding: 1.2rem 1.5rem;
     margin: 1.5rem auto 0;
     max-width: 90%;
-    width: 750px;
-    /* Wider for grid */
+    max-width: 95%;
+    width: auto;
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: var(--primary-shadow);
@@ -259,8 +259,8 @@ header {
 
 .exam-grid-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
     margin-top: 5px;
 }
 
@@ -317,7 +317,7 @@ header {
     max-width: 1300px;
     /* Wide enough for 3 columns */
     margin: 2rem auto;
-    padding: 0 2rem 4rem;
+    padding: 0 1rem 4rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -496,14 +496,47 @@ footer {
     /* Mobile - stacked */
     .class-card {
         flex: 0 0 100%;
+        max-width: 100%;
     }
 
     header {
-        padding: 1rem;
+        padding: 1rem 1.5rem;
     }
 
     .header-content h1 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+    }
+
+    .countdown-banner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .countdown-icon {
+        font-size: 2rem;
+    }
+
+    .exam-grid-row {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+        width: 95%;
+    }
+
+    .admin-controls {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+
+    .admin-controls button {
+        width: 100%;
     }
 }
 
