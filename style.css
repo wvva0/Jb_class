@@ -20,15 +20,17 @@
     --header-bg: rgba(255, 154, 162, 0.8);
     --header-text: #FFFFFF;
     --accent-color: #FF6F91;
+    --primary-color: #FF7E67;
+    --primary-gradient: linear-gradient(135deg, #FF7E67, #FF6F91);
     --banner-bg: rgba(255, 255, 255, 0.8);
 
     --transition-speed: 0.4s;
 
     /* Admin UI Contrast Variables */
-    --admin-header-text: #4A4A4A;
-    /* Darker for light mode */
-    --admin-summary-text: #555555;
-    --admin-item-bg: rgba(255, 255, 255, 0.5);
+    --admin-header-text: #2C2C2C;
+    /* High contrast dark grey */
+    --admin-summary-text: #444444;
+    --admin-item-bg: rgba(255, 255, 255, 0.6);
     --admin-form-bg: #FFFFFF;
 }
 
@@ -41,12 +43,15 @@
 
     --header-bg: rgba(26, 26, 46, 0.8);
     --header-text: #FFB7B2;
+    --primary-color: #FFB7B2;
+    --primary-gradient: linear-gradient(135deg, #FFB7B2, #FF9AA2);
     --banner-bg: rgba(30, 30, 50, 0.8);
 
     /* Admin UI Contrast Variables - Dark Mode */
-    --admin-header-text: #FFFFFF;
-    --admin-summary-text: #CCCCCC;
-    --admin-item-bg: rgba(45, 45, 68, 0.8);
+    --admin-header-text: #1A1A1A;
+    /* Force dark text on pastel headers even in dark mode */
+    --admin-summary-text: #E0E0E0;
+    --admin-item-bg: rgba(45, 45, 68, 0.9);
     --admin-form-bg: #1A1A2E;
 }
 
@@ -375,14 +380,18 @@ header {
     align-items: center;
     gap: 12px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    color: #2C2C2C !important;
+    /* Force high contrast dark text on pastel headers */
 }
 
 .day-badge {
     padding: 4px 8px;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.8);
+    color: #4A4A4A;
     font-weight: 700;
     font-size: 0.75rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .card-header h2 {
@@ -660,14 +669,16 @@ footer {
 
 .save-btn {
     background: var(--primary-gradient);
-    color: white;
+    color: #FFFFFF !important;
     border: none;
-    padding: 1rem 2rem;
-    border-radius: 12px;
-    font-weight: bold;
+    padding: 1rem 2.5rem;
+    border-radius: 16px;
+    font-weight: 800;
+    font-size: 1.1rem;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 15px rgba(255, 126, 103, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 25px rgba(255, 126, 103, 0.4);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .save-btn:hover {
@@ -717,17 +728,20 @@ footer {
 }
 
 .secondary-btn {
-    background: rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.15);
     padding: 8px 16px;
     border-radius: 8px;
     cursor: pointer;
     font-size: 0.9rem;
-    transition: background 0.3s;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: all 0.3s;
 }
 
 .secondary-btn:hover {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.15);
+    border-color: rgba(0, 0, 0, 0.2);
 }
 
 .admin-days-grid {
@@ -762,21 +776,28 @@ footer {
     font-size: 0.85rem;
     color: var(--admin-summary-text);
     min-height: 60px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .edit-day-btn {
-    background: rgba(255, 255, 255, 0.3);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    color: var(--admin-header-text);
-    padding: 4px 10px;
-    border-radius: 6px;
+    background: #FFFFFF;
+    border: 1.5px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 5px 12px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 5px;
     transition: all 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .edit-day-btn:hover {
-    background: rgba(255, 255, 255, 0.5);
+    background: var(--primary-color);
+    color: #FFFFFF;
     transform: scale(1.05);
 }
 
@@ -831,13 +852,20 @@ footer {
 
 .save-item-btn {
     background: var(--primary-gradient);
-    color: white;
+    color: #FFFFFF !important;
     border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-weight: bold;
+    padding: 10px 24px;
+    border-radius: 12px;
+    font-weight: 700;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(255, 126, 103, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 126, 103, 0.3);
+    transition: all 0.3s;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.save-item-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 126, 103, 0.4);
 }
 
 .hidden {
@@ -864,12 +892,14 @@ footer {
     text-align: center;
     letter-spacing: 0.8rem;
     border-radius: 16px;
-    border: 2px solid rgba(0, 0, 0, 0.1);
-    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    background: #FFFFFF;
     outline: none;
     transition: all 0.3s;
     font-family: 'Courier New', Courier, monospace;
-    color: var(--primary-color);
+    color: #1A1A1A;
+    /* Fixed dark color for input text */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 #login-password-input:focus {
